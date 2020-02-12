@@ -20,13 +20,38 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
-    grid-gap: 20px;
+    grid-template-columns: repeat(7, 1fr);
     padding: 20px;
-    border: #90CCF4 solid;
+    border: #90CCF4 solid 3px;
     background-color: #90CCF4;
-    width: 85vw;
+    width: 800px;
+    height: 700px;
+    margin: auto;
 }
+
+.drop-container {
+    align-items: center;
+    display: flex;
+    width: 810px;
+    margin: auto;
+    justify-content: space-around;
+    padding: 10px;
+    border: transparent;
+    background-color:transparent;
+    
+}
+
+
+.drop-button {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    margin: auto;
+    border-radius: 50%;
+    text-align: center;
+    
+}
+
+
 
 .box {
     background-color:rgba(255, 255, 255, 0.8);
@@ -37,16 +62,9 @@ h2 {
     border-radius: 50%;
 }
 
-.empty {
-    background-color:rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 30px 0;
-    font-size: 30px;
-    border: #90CCF4 solid;
-    border-radius: 50%;
-}
 
-button { 
+
+#replay { 
     border: none;
     color: black;
     padding: 16px 32px;
@@ -60,7 +78,7 @@ button {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.player1 {
+.player-1 {
     background-color:rgb(233, 141, 137);
     text-align: center;
     padding: 30px 0;
@@ -69,7 +87,7 @@ button {
     border-radius: 50%;
 }
 
-.player2 {
+.player-2 {
     background-color: rgb(237, 209, 101);
     text-align: center;
     padding: 30px 0;

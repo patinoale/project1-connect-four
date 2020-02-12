@@ -1,25 +1,26 @@
 /*----- constants -----*/
 
-const players = {
-    player1: 1,
-    player2: 2
-}
+ const players = {
+     player1 = 1
+     player2 = 2
+ }
 
 /*----- app's state (variables) -----*/
 
 let board;
-let turn = 1;
+let turn;
 let winner;
 
 
 
 /*----- cached element references -----*/
 
-const cells = document.querySelectorAll('#board > div');
+const cells = Array.from(document.querySelectorAll('#board > div'));
 const message = document.querySelector('h2');
+
 /*----- event listeners -----*/
 
-document.getElementById('board').addEventListener('click', turnMade);
+document.getElementById('board').addEventListener('click', moveMade);
 
 /*----- functions -----*/
 
@@ -27,25 +28,27 @@ function init() {
     board =  new Array(42).fill(null);
     turn = 1;
     winner = null;
-    selectedCell = null;
-    render();
+
+render();
 };
+
 init()
 
+//////////////////////////////////////////////////////////////
 
 function render(){
-    cells.forEach(function(e, i) {
-        //console.log(play,i)
-    let color;
-    if (board[i] === selectedCell){
-        color = 'player1';
-    };   
+    board.forEach(function(e, i) {
+        //console.log(e,i)
     cells[i].textcontent = e;
-    });
-    message.textContent = `${turn}'s turn!`};
+});
+  
+    message.textContent = `${turn}'s turn!`;
+};
 
 
-function turnMade(event) {
+//////////////////////////////////////////////////////////////
+
+function moveMade(event) {
     let idx = cells.findIndex(function(box) {
         return box === event.target;
     });
@@ -56,19 +59,24 @@ function turnMade(event) {
         else {
         turn = 1
         };
-    render();
     
-
-
-
+    render();
 };
+
+function changeColor() {
+    if (moveMade === 1) {
+        document.getElementsByClassName("box").style.backgroundColor="red";
+    }
+}
+
 
 // init();
 
 
-
+//start game with empty cells set to 0 or null
 //player1 is red(1) (goes first) player2 is yellow(2)(goes second)
-//player whose turn it is picks a column 
-//their tile will fall on the first open spot (0) in that column 
+//when player clicks over column change color of cell to player's color (first from the top that is 0 or null)
+//make a transparent row above first row that selects entire column and drops token in first empty cell
 //players keep picking until someone connects 4 
 //0 - empty cell 1- red 2- yellow;
+
